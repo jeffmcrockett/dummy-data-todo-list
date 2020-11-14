@@ -44,7 +44,6 @@ const filterArrayOfToDos = () => {
     const userNumber = document.getElementById("numUser").value
     console.log(userNumber)
         let filteredArrayOfToDos = arrayOfToDos.filter(todo => todo.userId == userNumber)
-        // let incompleteArrayOfToDos = arrayOfToDos.filter(todo => !todo.completed)
     console.log(filteredArrayOfToDos)
   removeElements()
   populateFilteredToDos(filteredArrayOfToDos)
@@ -62,7 +61,49 @@ const populateFilteredToDos = (filteredArrayOfToDos) => {
     }
 }
 
+const filterIncompleteArrayOfToDos = () => {
+    const userNumber = document.getElementById("numUser").value
+    console.log(userNumber)
+        let filteredArrayOfToDos = arrayOfToDos.filter(todo => todo.userId == userNumber)
+        let incompleteArrayOfToDos = filteredArrayOfToDos.filter(todo => todo.completed == false)
+    console.log(incompleteArrayOfToDos)
+    removeElements()
+    populateIncompleteArrayOfToDos (incompleteArrayOfToDos)
+}
 
+const populateIncompleteArrayOfToDos = (incompleteArrayOfToDos) => {
+    const setToDo = document.getElementById("todo-list")
+    for (let index = 0; index < incompleteArrayOfToDos.length; index++) {
+        console.log(index)
+        const listItem = document.createElement("li")
+        const text = document.createTextNode(incompleteArrayOfToDos[index].title);
+            console.log(incompleteArrayOfToDos[index].title)
+        listItem.appendChild(text)
+        setToDo.appendChild(listItem)
+    }
+}
+
+const filterCompletedArrayOfToDos = () => {
+    const userNumber = document.getElementById("numUser").value
+    console.log(userNumber)
+        let filteredArrayOfToDos = arrayOfToDos.filter(todo => todo.userId == userNumber)
+        let completedArrayOfToDos = filteredArrayOfToDos.filter(todo => todo.completed == true)
+    console.log(completedArrayOfToDos)
+    removeElements()
+    populateCompletedArrayOfToDos (completedArrayOfToDos)
+}
+
+const populateCompletedArrayOfToDos = (completedArrayOfToDos) => {
+    const setToDo = document.getElementById("todo-list")
+    for (let index = 0; index < completedArrayOfToDos.length; index++) {
+        console.log(index)
+        const listItem = document.createElement("li")
+        const text = document.createTextNode(completedArrayOfToDos[index].title);
+            console.log(completedArrayOfToDos[index].title)
+        listItem.appendChild(text)
+        setToDo.appendChild(listItem)
+    }
+}
 
 const removeElements = () => {
     const allListElements = document.querySelectorAll("li")
