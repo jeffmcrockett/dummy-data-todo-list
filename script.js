@@ -1,22 +1,5 @@
 // We'll pre-populate this array with a couple objects just so it's not undefined if your internet connection isn't working properly.
 
-let arrayOfToDos = [
-    {
-    "userId": 14,
-    "id": 1,
-    "title": "delectus aut autem",
-    "completed": false
-  },
-  {
-    "userId": 20,
-    "id": 2,
-    "title": "delectus aut autem",
-    "completed": false
-}]
-
-console.log(arrayOfToDos[0].userId) // => 14
-console.log(arrayOfToDos[1].userId) // => 20
-
 const fetchToDos = () => {
     fetch('https://jsonplaceholder.typicode.com/ToDos')
     .then( (response) => response.json())

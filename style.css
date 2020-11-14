@@ -1,0 +1,18 @@
+button, select {
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+}
+li {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+}
+body {
+    background-color: lightgrey;
+}
+button:hover, select:hover {
+    color: red;
+}
