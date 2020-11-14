@@ -12,18 +12,19 @@
     <button onclick="populateToDos()">Populate ToDos</button>
     <select name="numUser" id="numUser">
         <option value="1">1</option>
-        <option value="1">2</option>
-        <option value="1">3</option>
-        <option value="1">4</option>
-        <option value="1">5</option>
-        <option value="1">6</option>
-        <option value="1">7</option>
-        <option value="1">8</option>
-        <option value="1">9</option>
-        <option value="1">10</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
     </select>
-    <button onclick="filterArrayOfToDos('userId')">Filter by User Id</button>
-    <button onclick="filterArrayOfToDos('completed')">Filter by Completed</button>
+    <button onclick="filterArrayOfToDos()">Filter by User Id</button>
+    <button onclick="incompleteArrayOfToDos('incomplete')">Filter Incomplete</button>
+    <button onclick="completeArrayOfToDos('completed')">Filter Complete</button>
     <button onclick="removeElements()">Clear ToDos</button>
     <ol id="todo-list">
         <!-- lis go here -->

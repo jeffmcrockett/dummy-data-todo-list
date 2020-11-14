@@ -21,7 +21,7 @@ const fetchToDos = () => {
     fetch('https://jsonplaceholder.typicode.com/ToDos')
     .then( (response) => response.json())
     .then( (json) => arrayOfToDos = json)
-    console.log("fetch in progress")
+    console.log("fetching")
 }
 
 const logToDos = () => {
@@ -32,28 +32,37 @@ const populateToDos = () => {
     const setToDo = document.getElementById("todo-list")
     for (let index = 0; index < arrayOfToDos.length; index++) {
         console.log(index)
-        const listItem = document.getElementById("li")
-        const text = document.createTextNode(arrayOfToDos[index].userId);
-            console.log(arrayOfToDos[index].userId)
+        const listItem = document.createElement("li")
+        const text = document.createTextNode(arrayOfToDos[index].title);
+            console.log(arrayOfToDos[index].title)
         listItem.appendChild(text)
         setToDo.appendChild(listItem)
     }
 }
 
-const filterArrayOfToDos = (filterBy) => {
-  console.log(filterBy)
+const filterArrayOfToDos = () => {
     const userNumber = document.getElementById("numUser").value
-    console.log("userNumber")
-    if (filterBy === "userId") {
-        arrayOfToDos = arrayOfToDos.filter(todo => todo.userId == userNumber)
-    }
-    if (filterBy === "completed") {
-        arrayOfToDos = arrayOfToDos.filter(todo => !todo.completed)
-    }
-    console.log(arrayOfToDos)
+    console.log(userNumber)
+        let filteredArrayOfToDos = arrayOfToDos.filter(todo => todo.userId == userNumber)
+        // let incompleteArrayOfToDos = arrayOfToDos.filter(todo => !todo.completed)
+    console.log(filteredArrayOfToDos)
   removeElements()
-  populateElements()
+  populateFilteredToDos(filteredArrayOfToDos)
 }
+
+const populateFilteredToDos = (filteredArrayOfToDos) => {
+    const setToDo = document.getElementById("todo-list")
+    for (let index = 0; index < filteredArrayOfToDos.length; index++) {
+        console.log(index)
+        const listItem = document.createElement("li")
+        const text = document.createTextNode(filteredArrayOfToDos[index].title);
+            console.log(filteredArrayOfToDos[index].title)
+        listItem.appendChild(text)
+        setToDo.appendChild(listItem)
+    }
+}
+
+
 
 const removeElements = () => {
     const allListElements = document.querySelectorAll("li")
