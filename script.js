@@ -13,13 +13,14 @@ const logToDos = () => {
 
 const populateToDos = () => {
     const setToDo = document.getElementById("todo-list")
+    removeElements()
     for (let index = 0; index < arrayOfToDos.length; index++) {
         console.log(index)
         const listItem = document.createElement("li")
         const text = document.createTextNode(arrayOfToDos[index].title);
             console.log(arrayOfToDos[index].title)
         listItem.appendChild(text)
-        setToDo.appendChild(listItem)
+        setToDo.appendChild(listItem) 
     }
 }
 
@@ -32,7 +33,7 @@ const filterArrayOfToDos = () => {
   populateFilteredToDos(filteredArrayOfToDos)
 }
 
-const populateFilteredToDos = (filteredArrayOfToDos) => {
+const populateFilteredToDos = (filteredArrayOfToDos) => {   
     const setToDo = document.getElementById("todo-list")
     for (let index = 0; index < filteredArrayOfToDos.length; index++) {
         console.log(index)
